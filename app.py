@@ -1,24 +1,25 @@
 import streamlit as st
+import pandas as pd
 from google.oauth2 import service_account
-from google.cloud import bigquery
 
-st.title("Diagnóstico de Conexão")
+st.title("Teste com Motor alternativo (Pandas-GBQ)")
 
-# 1. Tenta autenticar
-try:
-    credentials_info = st.secrets["gcp_service_account"]
-    credentials = service_account.Credentials.from_service_account_info(credentials_info)
-    client = bigquery.Client(credentials=credentials, project=credentials.project_id)
-    st.success("Autenticação OK!")
-except Exception as e:
-    st.error(f"Erro na Autenticação: {e}")
-    st.stop()
+# Função simplificada ao máximo
+def get_data_alternative():
+    info = st.secrets["gcp_service_account"]
+    creds = service_account.Credentials.from_service_account_info(info)
+    project_id = info["project_id"]
+    
+    query = "SELECT * FROM `affable-envoy-482112-d9.business.fact_enem__infrastructure_impact` LIMIT 10"
+    
+    # O pandas-gbq gerencia a conexão de uma forma diferente do cliente padrão
+    return pd.read_gbq(query, project_id=project_id, credentials=creds, dialect='standard')
 
-# 2. Tenta a Query mais simples possível
-if st.button("Executar Teste de Query"):
-    try:
-        query_job = client.query("SELECT 'Sucesso!' as resultado")
-        df = query_job.to_dataframe()
-        st.write(df)
-    except Exception as e:
-        st.error(f"Erro na Query: {e}")
+if st.button("Tentar nova conexão"):
+    with st.status("Conectando via Pandas-GBQ..."):
+        try:
+            df = get_data_alternative()
+            st.success("Finalmente carregou!")
+            st.dataframe(df)
+        except Exception as e:
+            st.error(f"Erro no novo motor: {e}")
