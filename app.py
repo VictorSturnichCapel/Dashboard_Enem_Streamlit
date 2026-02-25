@@ -38,6 +38,17 @@ cid_sel = st.sidebar.multiselect("Cidade", options=cidades_ops)
 tipo_esc_ops = df_raw["school_type"].unique()
 tipo_sel = st.sidebar.multiselect("Tipo da escola", options=tipo_esc_ops)
 
+# Filtro de escola dinâmico (só mostra escolas dos filtros selecionados)
+df_temp = df_raw[df_raw["exam_year"].isin(ano_sel)]
+if est_sel:
+    df_temp = df_temp[df_temp["school_state"].isin(est_sel)]
+if cid_sel:
+    df_temp = df_temp[df_temp["school_city_name"].isin(cid_sel)]
+if tipo_sel:
+    df_temp = df_temp[df_temp["school_type"].isin(tipo_sel)]
+escolas_ops = sorted(df_temp["school_name"].unique())
+esc_sel = st.sidebar.multiselect("Escola", options=escolas_ops)
+
 # Aplicação dos Filtros
 df = df_raw[df_raw["exam_year"].isin(ano_sel)]
 if est_sel:
@@ -46,6 +57,8 @@ if cid_sel:
     df = df[df["school_city_name"].isin(cid_sel)]
 if tipo_sel:
     df = df[df["school_type"].isin(tipo_sel)]
+if esc_sel:
+    df = df[df["school_name"].isin(esc_sel)]
 
 # 4. Cabeçalho e KPIs
 st.title("💡 Diagnóstico Enem")
