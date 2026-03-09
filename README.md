@@ -1,5 +1,6 @@
 # 📊 Dashboard Interativo - Microdados ENEM
 
+
 Este projeto é uma aplicação interativa desenvolvida com **Streamlit** para visualização e análise dos microdados do Exame Nacional do Ensino Médio (ENEM). O objetivo é facilitar a exploração de tendências educacionais, perfis socioeconômicos e desempenho dos candidatos através de uma interface intuitiva.
 
 ## 🚀 Funcionalidades
@@ -79,3 +80,4 @@ Após o comando, o dashboard será aberto automaticamente no seu navegador padr�
 O projeto utiliza os Microdados do ENEM disponibilizados pelo INEP.
 
 Nota: Devido ao grande volume de dados originais, recomenda-se trabalhar com amostras em formato .csv ou arquivos compactados .parquet para garantir a fluidez da navegação no Streamlit.
+
