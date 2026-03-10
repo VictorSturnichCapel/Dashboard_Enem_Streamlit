@@ -46,6 +46,8 @@ cd Dashboard_Enem_Streamlit
 ### 3. Configurar Ambiente Virtual (Recomendado)
 Para manter as dependências organizadas, crie e ative um ambiente virtual:
 
+Recomendo o uso do UV!
+
 Windows:
 
 ```Bash
@@ -80,4 +82,5 @@ Após o comando, o dashboard será aberto automaticamente no seu navegador padr�
 O projeto utiliza os Microdados do ENEM disponibilizados pelo INEP.
 
 Nota: Devido ao grande volume de dados originais, recomenda-se trabalhar com amostras em formato .csv ou arquivos compactados .parquet para garantir a fluidez da navegação no Streamlit.
+
 
