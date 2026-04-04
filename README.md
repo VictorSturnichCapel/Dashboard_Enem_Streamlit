@@ -2,7 +2,6 @@
 
 Este projeto é uma aplicação interativa desenvolvida com **Streamlit** para visualização e análise dos microdados do Exame Nacional do Ensino Médio (ENEM). O objetivo é facilitar a exploração de tendências educacionais, perfis socioeconômicos e desempenho dos candidatos através de uma interface intuitiva.
 
-
 ## 🚀 Funcionalidades
 
 - **Análise de Desempenho:** Visualização das médias por competências (Matemática, Linguagens, Ciências Humanas, Ciências da Natureza e Redação).
