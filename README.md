@@ -74,7 +74,6 @@ Com tudo configurado, inicie o servidor do Streamlit:
 ```Bash
 streamlit run app.py
 ```
-
 Após o comando, o dashboard será aberto automaticamente no seu navegador padrão (geralmente no endereço http://localhost:8501).
 
 ### 📊 Base de Dados
