@@ -80,5 +80,3 @@ Após o comando, o dashboard será aberto automaticamente no seu navegador padr�
 O projeto utiliza os Microdados do ENEM disponibilizados pelo INEP.
 
 Nota: Devido ao grande volume de dados originais, recomenda-se trabalhar com amostras em formato .csv ou arquivos compactados .parquet para garantir a fluidez da navegação no Streamlit.
-
-
